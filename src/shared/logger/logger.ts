@@ -1,3 +1,4 @@
 export default function (message: string, time = new Date()) {
-  return `${time} - ${message}`;
+  // eslint-disable-next-line no-console
+  console.log(`${time} - ${message}`);
 }
