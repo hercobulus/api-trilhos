@@ -5,6 +5,7 @@ import 'express-async-errors';
 import logger from '../logger/logger';
 import createConnection from '../typeorm';
 import handlerError from '../middlewares/handlerError';
+import routes from './routes';
 
 createConnection()
   .then(function () {
@@ -14,9 +15,7 @@ createConnection()
     app.use(cors());
     app.use(express.json());
 
-    app.get('/', (request, response) => {
-      return response.json({ msg: 'Okay' });
-    });
+    app.use(routes);
 
     app.use(handlerError);
 
